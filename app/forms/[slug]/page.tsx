@@ -4,17 +4,19 @@ import Link from "next/link";
 import FormFrame from "./../../components/FormFrame";
 
 // Allowed slugs as a union type - UPDATED
-export type FormSlug = "report-upload" | "article-upload";
+export type FormSlug = "report-upload" | "article-upload" | "l2t-form";
 
-const VALID_SLUGS: FormSlug[] = ["report-upload", "article-upload"];
+const VALID_SLUGS: FormSlug[] = ["report-upload", "article-upload", "l2t-form"];
 
-/** Map slugs to env variables - UPDATED */
+/** Map slugs to env variables*/
 function getEmbedUrlForSlug(slug: FormSlug): string | undefined {
   switch (slug) {
     case "report-upload":
-      return process.env.AIRTABLE_EMBED_REPORT_UPLOAD; // or keep as AIRTABLE_EMBED_DOCUMENTS_UPLOAD if you don't want to rename the env var
+      return process.env.AIRTABLE_EMBED_REPORT_UPLOAD;
     case "article-upload":
       return process.env.AIRTABLE_EMBED_ARTICLE_UPLOAD;
+    case "l2t-form":
+      return process.env.AIRTABLE_EMBED_L2T_FORM;
   }
 }
 
@@ -27,6 +29,7 @@ export async function generateMetadata({
   const titleMap: Record<FormSlug, string> = {
     "report-upload": "Report Upload",
     "article-upload": "Article Upload",
+    "l2t-form": "L2T Form",
   };
   return {
     title: `${titleMap[slug]} • Submissions Hub`,
@@ -84,7 +87,7 @@ export default async function FormEmbedPage({
     );
   }
 
-  // Form metadata - UPDATED
+  // Form metadata
   const formMetadata = {
     "report-upload": {
       title: "Report Upload",
@@ -93,6 +96,10 @@ export default async function FormEmbedPage({
     "article-upload": {
       title: "Article Upload",
       description: "Submit articles and documents for review",
+    },
+    "l2t-form": {
+      title: "Generate Line to Take",
+      description: "Submit a link or document to generate insights",
     },
   };
 
