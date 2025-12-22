@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, Newspaper, Pen } from "lucide-react";
+import { FileText, Newspaper, Pen, MessageCircle } from "lucide-react";
 import { CTACard } from "./CTACard";
 
 type Props = {
@@ -34,10 +34,10 @@ export default function ShareKnowledge({ meEmail, urls }: Props) {
               />
 
               <CTACard
-                title="Upload Article"
-                icon={Newspaper}
+                title="Chat interview with AI"
+                icon={MessageCircle}
                 iconColor="blue"
-                href="/forms/article-upload"
+                href={`/chat?client_id=${encodeURIComponent(meEmail)}`}
               />
 
               <CTACard
