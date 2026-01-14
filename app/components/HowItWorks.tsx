@@ -37,12 +37,12 @@ export default function HowItWorks() {
             <Upload className="h-6 w-6 text-[var(--color-brand-primary)]" />
           }
           title="1. Upload"
-          desc="Share your content in any format — files, links, or chat."
+          desc="Share your content."
         />
         <StepInline
           icon={<Bot className="h-6 w-6 text-[var(--color-brand-primary)]" />}
           title="2. Process"
-          desc="Our AI analyzes and structures your knowledge."
+          desc="Our AI analyzes and structures your inputs."
         />
         <StepInline
           icon={
