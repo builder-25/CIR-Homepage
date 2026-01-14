@@ -91,15 +91,12 @@ export default async function FormEmbedPage({
   const formMetadata = {
     "report-upload": {
       title: "Report Upload",
-      description: "Upload reports and supporting documents",
     },
     "article-upload": {
       title: "Article Upload",
-      description: "Submit articles and documents for review",
     },
     "l2t-form": {
       title: "Generate Line to Take",
-      description: "Submit a link or document to generate insights",
     },
   };
 
@@ -135,9 +132,6 @@ export default async function FormEmbedPage({
             <h2 className="text-xl font-semibold text-neutral-900">
               {metadata.title}
             </h2>
-            <p className="text-sm text-neutral-500 mt-1">
-              {metadata.description}
-            </p>
           </div>
 
           <section className="mt-6">
