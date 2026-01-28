@@ -27,7 +27,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "types/**/*.d.ts"
+    "types/**/*.d.ts",
+    "app/auth/callback/route.backup",
+    "app/auth/confirm/route.ts.backup"
   ],
   "exclude": ["node_modules"]
 }

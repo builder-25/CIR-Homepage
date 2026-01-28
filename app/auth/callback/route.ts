@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
     const code = url.searchParams.get("code");
     const toLogin = (reason?: string) =>
       NextResponse.redirect(
-        new URL(`/login${reason ? `?${reason}=1` : ""}`, req.url)
+        new URL(`/login${reason ? `?${reason}=1` : ""}`, req.url),
       );
 
     if (!code) return toLogin("missing_code");
@@ -38,9 +38,8 @@ export async function GET(req: NextRequest) {
     const supabase = await createClient();
 
     // Exchange the code AND set auth cookies on the response automatically
-    const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(
-      code
-    );
+    const { error: exchangeError } =
+      await supabase.auth.exchangeCodeForSession(code);
     if (exchangeError) {
       console.error("Auth exchange error:", exchangeError);
       return toLogin("auth_error");
